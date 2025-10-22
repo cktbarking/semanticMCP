@@ -2,6 +2,8 @@
 
 一个基于FastMCP框架的Semantic Scholar学术搜索引擎工具，可以搜索学术论文并下载PDF文件。支持通过MCP协议与各种AI助手集成。
 
+**GitHub仓库**: https://github.com/cktbarking/semanticMCP.git
+
 ## 功能特性
 
 1. 🔍 **学术论文搜索** - 搜索Semantic Scholar数据库
@@ -15,8 +17,11 @@
 ### 使用uvx运行（推荐）
 
 ```bash
-# 安装并运行MCP服务器
-uvx semantic-scholar-mcp --transport stdio
+# 从GitHub仓库安装并运行MCP服务器
+uvx --from git+https://github.com/cktbarking/semanticMCP.git semantic-scholar-mcp --transport stdio
+
+# 或者使用简写方式
+uvx cktbarking/semanticMCP --transport stdio
 
 # 或者指定版本
 uvx semantic-scholar-mcp@latest --transport stdio
@@ -26,8 +31,8 @@ uvx semantic-scholar-mcp@latest --transport stdio
 
 ```bash
 # 克隆项目
-git clone <repository-url>
-cd semantic-scholar-mcp
+git clone https://github.com/cktbarking/semanticMCP.git
+cd semanticMCP
 
 # 安装依赖
 uv sync
@@ -123,7 +128,7 @@ python main.py
   "mcpServers": {
     "semantic-scholar": {
       "command": "uvx",
-      "args": ["semantic-scholar-mcp", "--transport", "stdio"]
+      "args": ["--from", "git+https://github.com/cktbarking/semanticMCP.git", "semantic-scholar-mcp", "--transport", "stdio"]
     }
   }
 }
@@ -170,7 +175,7 @@ semantic-scholar-mcp/
 
 ## 许可证
 
-MIT License - 详见LICENSE文件
+GNU General Public License v3.0 - 详见LICENSE文件
 
 ## 贡献
 
